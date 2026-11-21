@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glaze 隐私政策</title>
+<style>
+  :root {
+    --ink: #1E1E24;
+    --ink-soft: #565064;
+    --paper: #FBFAFD;
+    --card: #FFFFFF;
+    --line: #E7E3F0;
+    --accent: #6B5899;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 40px 20px 72px;
+    background: var(--paper);
+    color: var(--ink);
+    font: 16px/1.75 -apple-system, BlinkMacSystemFont, "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 {
+    font-size: 30px; line-height: 1.3; margin: 0 0 6px;
+    font-weight: 600; letter-spacing: -0.01em;
+  }
+  .updated { color: var(--ink-soft); font-size: 14px; margin: 0 0 32px; }
+  h2 {
+    font-size: 19px; margin: 36px 0 10px; font-weight: 600;
+    padding-top: 22px; border-top: 1px solid var(--line);
+  }
+  h2:first-of-type { border-top: none; padding-top: 8px; }
+  p, li { color: var(--ink); }
+  ul { padding-left: 22px; margin: 10px 0; }
+  li { margin: 6px 0; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px 22px;
+    margin: 18px 0;
+  }
+  .card p:first-child { margin-top: 0; }
+  .card p:last-child { margin-bottom: 0; }
+  .label {
+    display: inline-block;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--accent);
+    background: #F1EDF9;
+    border-radius: 999px;
+    padding: 3px 11px;
+    margin-bottom: 8px;
+  }
+  strong { font-weight: 600; }
+  a { color: var(--accent); }
+  footer {
+    margin-top: 48px; padding-top: 22px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft); font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Glaze 隐私政策</h1>
+<p class="updated">最后更新：2026 年 10 月 25 日</p>
+
+<div class="card">
+<span class="label">一句话</span>
+<p>Glaze 帮你在附近 2 公里内找一个能坐下来的地方。它要知道你在哪儿，
+但<strong>没有账号、不追踪你、不接任何第三方统计或广告 SDK</strong>。
+你记下的角落默认只存在这台设备上；只有你主动点「发布到公共库」，
+那条记录才会离开手机。</p>
+</div>
+
+<h2>一、位置</h2>
+<p>打开 App 时会请求「使用 App 期间」的位置权限。位置用来做三件事：</p>
+<ul>
+  <li>算出每个角落离你多远、在哪个方向；</li>
+  <li>只显示附近 2 公里范围内的角落；</li>
+  <li>按你所在位置的经纬度，取当地的日落时间（Golden Hour 就是据此算的）。</li>
+</ul>
+<p>位置只在这台设备上使用，<strong>不会上传、不会用来识别你是谁</strong>。
+不授权也能用：可以浏览你自己记过的角落和编辑精选，只是没有距离和方位。
+随时可以在「设置 → 隐私 → 定位服务」里关掉。</p>
+
+<h2>二、麦克风</h2>
+<p>「测一下这里的安静度」会用麦克风录 3 秒环境声，用来算出这个角落有多安静。</p>
+<div class="card">
+<p><strong>这段声音不保存、不上传。</strong>它写进一个临时文件，
+测完立刻删除，App 从头到尾读到的只是一个音量数值（0–100）。
+麦克风只在点下那个按钮的 3 秒内工作，其余时间不开启。</p>
+</div>
+
+<h2>三、相机与照片</h2>
+<p>相机有三个用途，都在你触发时才启动：</p>
+<ul>
+  <li><strong>扫码</strong>：扫别人分享的角落二维码；</li>
+  <li><strong>拍照</strong>：给你记的角落拍一张照片当底图；</li>
+  <li><strong>实时取景</strong>：把眼前的实景当作卡片背景。</li>
+</ul>
+<p>取景画面只在屏幕上显示，不录制、不上传。你拍的照片存在 App 自己的
+沙盒里，删掉角落时会一并删除。「从相册选」走系统选择器，
+App 只拿到你选中的那一张。</p>
+
+<h2>四、天气</h2>
+<p>为了显示角落当前的温度和风速，Glaze 会向 <strong>Open-Meteo</strong>
+（open-meteo.com，一个开源天气 API）发送一次请求。请求里带的是
+<strong>经纬度坐标，不含任何设备标识或账号信息</strong>。
+Open-Meteo 不要求注册，也不用于广告。拿不到数据时 App 显示「还没拿到天气」，
+不会用编造的数字顶上。</p>
+
+<h2>五、公共库（iCloud）</h2>
+<p>如果你主动把某个角落「发布到公共库」，这条记录会存进
+<strong>你自己 iCloud 账号下的 CloudKit 公共数据库</strong>，
+其他 Glaze 用户可以在附近看到它。发布的内容是：地点名称、坐标、
+你写的一句话、以及可选的安静度（不含照片）。</p>
+<ul>
+  <li>随时可以在「公共库 → 我发布的」里<strong>撤回</strong>，撤回后别人就看不到了；</li>
+  <li>看到不合适的内容可以<strong>举报</strong>或<strong>屏蔽</strong>，
+      被屏蔽的作者和内容不会再出现在你的列表里；</li>
+  <li>公共库内容受 <a href="#rules">社区规则</a> 约束。</li>
+</ul>
+<p>没有登录 iCloud、或不想用这个功能，就完全不会有任何数据离开这台设备。</p>
+
+<h2 id="rules">六、社区规则</h2>
+<p>发布到公共库时请不要发：广告或拉人、不是「能坐下来的地方」的内容、
+不合适的内容、以及错误的位置。举报后会先在你的设备上立即屏蔽该内容，
+再提交给开发者处理。</p>
+
+<h2>七、我们不做的事</h2>
+<ul>
+  <li>不收集姓名、邮箱、手机号或任何账号信息；</li>
+  <li>没有第三方分析、统计、广告 SDK，没有追踪；</li>
+  <li>不出售、不共享、不交换任何数据；</li>
+  <li>不把位置、录音或照片用于上面没写到的任何用途。</li>
+</ul>
+
+<h2>八、数据保留与删除</h2>
+<p>你收藏和记录的角落保存在本机数据库中。卸载 App 会删除全部数据。
+单个角落可以在「收藏 → 我记的」里删除，删除后它在本机的记录和照片一并清除。
+已发布到公共库的记录需要你在「公共库 → 我发布的」里先撤回。</p>
+
+<h2>九、儿童隐私</h2>
+<p>Glaze 不面向 13 岁以下儿童，也不会有意收集儿童的个人信息。</p>
+
+<h2>十、变更</h2>
+<p>如果这份政策有实质变更，会在 App 内和本页更新，并修改上方的「最后更新」日期。</p>
+
+<h2>十一、联系</h2>
+<p>对隐私或数据有疑问，可以发邮件到
+<a href="mailto:2468787071@qq.com">2468787071@qq.com</a>。</p>
+
+<footer>
+Glaze · 找一个能坐下的地方<br>
+本页是 Glaze 的完整隐私政策，同时也在 App 内「我的 → 隐私说明」里提供。
+</footer>
+
+</main>
+</body>
+</html>
